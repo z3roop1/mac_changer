@@ -1,4 +1,7 @@
+#!/usr/bin/env python
 import scapy.all as scapy
+
+import argparse
 
 def scan(ip):
     arp_request = scapy.ARP(pdst=ip)
@@ -18,5 +21,15 @@ def print_result(results_list):
     for element in results_list:
         print(element["ip"]+"\t\t"+element["mac"])
 
-scan_result = scan("192.168.1.1/24")
-print_result(scan_result)
+def arguments():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-t","--target",help="select the target",type=str)
+    args = parser.parse_args()
+    return args
+
+def main():
+    args = arguments()
+    scan_result = scan(args.target)
+    print_result(scan_result)
+
+main()
