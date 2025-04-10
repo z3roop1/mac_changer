@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 import scapy.all as scapy
 
 import argparse
@@ -23,7 +24,7 @@ def print_result(results_list):
 
 def arguments():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-t","--target",help="select the target",type=str)
+    parser.add_argument("-t","--target",help="select the target",type=str, required=True)
     args = parser.parse_args()
     return args
 
