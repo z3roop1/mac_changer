@@ -24,7 +24,7 @@ def print_result(results_list):
 
 def arguments():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-t","--target",help="select the target",type=str, required=True)
+    parser.add_argument("-t","--target",help="select the target(eg: 10.0.2.23/24)",type=str, required=True)
     args = parser.parse_args()
     return args
 
